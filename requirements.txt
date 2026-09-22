@@ -1,0 +1,13 @@
+# Core API + shared library
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+python-multipart==0.0.20
+
+# Data / scripts
+pandas==2.2.3
+numpy==2.2.1
+boto3==1.35.90
+
+# Optional signal handling (EDF/H5). Heavy; only needed for signal previews
+# and upload/CAISR ingestion. Install with: pip install -r requirements-signals.txt

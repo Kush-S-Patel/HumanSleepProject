@@ -1,0 +1,5 @@
+# Optional signal-processing dependencies for signal previews and EDF ingestion.
+# Only required for scripts/fetch_signals.py and EDF upload parsing.
+-r requirements.txt
+h5py==3.12.1
+mne==1.11.0

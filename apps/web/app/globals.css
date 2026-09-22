@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* HSP Lab — research workbench for the Human Sleep Project.
+   Light, restrained clinical-research look. No product branding. */
+
+@theme {
+  --color-ink-900: #0f1720;
+  --color-ink-800: #1a2430;
+  --color-ink-700: #243040;
+  --color-ink-600: #334255;
+  --color-ink-500: #4a5c70;
+  --color-line: #d7dde5;
+
+  --color-fog-100: #0f1720;
+  --color-fog-200: #1a2430;
+  --color-fog-300: #334255;
+  --color-fog-400: #5a6b7c;
+  --color-fog-500: #7a8b9a;
+  --color-fog-600: #9aabba;
+
+  --color-surface: #ffffff;
+  --color-canvas: #f4f6f8;
+  --color-muted: #e8ecf1;
+
+  --color-teal: #1b5f7a;
+  --color-teal-dim: #144a5f;
+  --color-cyan: #2a7a9b;
+  --color-violet: #4a5d7a;
+
+  --color-sev-normal: #1f7a4d;
+  --color-sev-mild: #9a6b12;
+  --color-sev-moderate: #b35a1a;
+  --color-sev-severe: #b32d2a;
+
+  --color-stage-wake: #9a6b12;
+  --color-stage-rem: #2a7a9b;
+  --color-stage-n1: #5a7aad;
+  --color-stage-n2: #3d5f94;
+  --color-stage-n3: #2a4570;
+  --color-stage-unknown: #8a96a3;
+
+  --font-display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-fog-100);
+  background: var(--color-canvas);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(27, 95, 122, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5ced8;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+}
+
+.panel-quiet {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+}
+
+.hairline {
+  border-color: var(--color-line);
+}
+
+.stat-value {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-fog-100);
+  outline: none;
+}
+.field-input:focus {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(27, 95, 122, 0.12);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--color-teal);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.9rem;
+  transition: background 0.15s ease;
+}
+.btn-primary:hover {
+  background: var(--color-teal-dim);
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise 0.35s ease-out both;
+}
+
+@keyframes sweep {
+  from {
+    stroke-dashoffset: var(--dash, 1200);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-sweep {
+  animation: sweep 1.2s ease-out forwards;
+}
