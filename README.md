@@ -12,7 +12,7 @@ scoring station, and not for unsupervised diagnosis.
 </p>
 
 <p align="center">
-  <em>~30s sped-up walkthrough — triage → report → epoch QC → sign-off → PDF. Watch the <code>t=Ns</code> badge.</em><br/>
+  <em>GIF walkthrough — triage → report → epoch QC → sign-off → PDF.</em><br/>
   <a href="docs/media/walkthrough.mp4">MP4 (full speed)</a>
   · <a href="docs/CLINICAL_REFERENCES.md">Clinical references</a>
   · <a href="LICENSE">MIT License</a>
