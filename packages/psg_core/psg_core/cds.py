@@ -3,11 +3,16 @@
 Turns computed metrics + study context into severity classifications and
 plain-language findings. This is decision *support* only: every payload carries
 an explicit disclaimer and is not a diagnosis.
+
+OSA severity cut-points follow common AASM / clinical-practice ranges.
+Citations live in ``psg_core.clinical_refs`` and ``docs/CLINICAL_REFERENCES.md``.
 """
 
 from __future__ import annotations
 
 from typing import Optional
+
+from . import clinical_refs as refs
 
 DISCLAIMER = (
     "Automated decision support for review by a qualified sleep clinician. "
@@ -17,23 +22,26 @@ DISCLAIMER = (
 
 
 def _osa_severity_adult(ahi: Optional[float]) -> tuple[str, str]:
+    """Adult OSA severity by AHI (events/h sleep). See ``clinical_refs.ADULT_OSA_AHI``."""
+    _ = refs.ADULT_OSA_AHI  # keep module linked for importers / docs
     if ahi is None:
         return "unknown", "AHI could not be computed"
     if ahi < 5:
-        return "normal", "AHI < 5"
+        return "normal", "AHI < 5 (adult; AASM/clinical practice)"
     if ahi < 15:
-        return "mild", "5 <= AHI < 15"
+        return "mild", "5 <= AHI < 15 (adult; AASM/clinical practice)"
     if ahi < 30:
-        return "moderate", "15 <= AHI < 30"
-    return "severe", "AHI >= 30"
+        return "moderate", "15 <= AHI < 30 (adult; AASM/clinical practice)"
+    return "severe", "AHI >= 30 (adult; AASM/clinical practice)"
 
 
 def _osa_severity_pediatric(ahi: Optional[float]) -> tuple[str, str]:
-    # AASM pediatric criteria are far more sensitive than adult.
+    """Pediatric OSA severity — more sensitive cut-points. See ``clinical_refs.PEDIATRIC_OSA_AHI``."""
+    _ = refs.PEDIATRIC_OSA_AHI
     if ahi is None:
         return "unknown", "AHI could not be computed"
     if ahi < 1:
-        return "normal", "AHI < 1 (pediatric)"
+        return "normal", "AHI < 1 (pediatric; AASM/ICSD)"
     if ahi < 5:
         return "mild", "1 <= AHI < 5 (pediatric)"
     if ahi < 10:

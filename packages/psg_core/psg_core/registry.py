@@ -5,7 +5,7 @@ from __future__ import annotations
 import csv
 import glob
 import os
-from typing import Iterable, Optional
+from typing import Optional
 
 from .paths import patient_uid, session_uid
 

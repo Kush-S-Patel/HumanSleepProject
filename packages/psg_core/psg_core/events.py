@@ -22,7 +22,7 @@ import csv
 import io
 import re
 from dataclasses import dataclass, field
-from typing import Iterable, Optional
+from typing import Optional
 
 # Canonical stage vocabulary used throughout the app.
 STAGE_ORDER = ["W", "N1", "N2", "N3", "REM"]

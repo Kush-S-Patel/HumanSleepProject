@@ -17,7 +17,6 @@ import csv
 import os
 from typing import Optional
 
-
 TASKS = ("stage", "arousal", "resp", "limb")
 # CAISR task CSVs are written at these rates (rows/sec of recording).
 TASK_HZ = {"stage": 1, "arousal": 2, "resp": 1, "limb": 1}

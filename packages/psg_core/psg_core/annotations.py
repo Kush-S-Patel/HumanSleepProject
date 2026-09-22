@@ -17,18 +17,16 @@ from __future__ import annotations
 
 import csv
 import io
-import re
 from datetime import datetime
 from typing import Optional
 
 from .events import (
-    ParsedAnnotations,
     STAGE_UNKNOWN,
+    ParsedAnnotations,
     ScoredEvent,
     _extract_nadir,
     classify_event,
     parse_annotations_csv,
-    stage_from_label,
 )
 
 # Extra stage aliases used by the split-file cohorts.
@@ -173,7 +171,6 @@ def _parse_events_file(
     dur_col = _find(fields, "Duration", "Length", "duration")
     dt_col = _find(fields, "StampTimeLocal", "StampTimeUtc", "local_time_start")
     elapsed_col = _find(fields, "Record Time", "RecordTime")
-    clock_col = _find(fields, "Time", "time")
     epoch_col = _find(fields, "Epoch", "epoch", "DataIndex")
 
     if label_col is None:

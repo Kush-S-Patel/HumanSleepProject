@@ -11,7 +11,7 @@ from typing import Optional, Sequence
 
 
 def confusion_matrix(y_true: Sequence[str], y_pred: Sequence[str], labels: list[str]) -> list[list[int]]:
-    idx = {l: i for i, l in enumerate(labels)}
+    idx = {lab: i for i, lab in enumerate(labels)}
     m = [[0 for _ in labels] for _ in labels]
     for t, p in zip(y_true, y_pred):
         if t in idx and p in idx:

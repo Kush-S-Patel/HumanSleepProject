@@ -74,16 +74,16 @@ def _int(b: bytes) -> int:
 
 def _canon_label(raw_label: str) -> str:
     """Map a raw EDF channel label to CAISR's canonical name (best effort)."""
-    l = raw_label.strip().lower()
+    label = raw_label.strip().lower()
     # Strip a leading "eeg " prefix ("eeg c3-m2" → "c3-m2").
-    if l.startswith("eeg ") and l != "eeg":
-        l = l[4:].strip()
-    if l.startswith("eog ") and l not in _LABEL_REMAP:
+    if label.startswith("eeg ") and label != "eeg":
+        label = label[4:].strip()
+    if label.startswith("eog ") and label not in _LABEL_REMAP:
         # "eog e1-m2" → try the remainder
-        rest = l[4:].strip()
+        rest = label[4:].strip()
         if rest in _LABEL_REMAP or rest in ("e1-m2", "e2-m1"):
-            l = rest
-    return _LABEL_REMAP.get(l, l)
+            label = rest
+    return _LABEL_REMAP.get(label, label)
 
 
 def _pad16(label: str) -> bytes:

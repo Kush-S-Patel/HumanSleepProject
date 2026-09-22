@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import Iterable, Optional
 
 from .events import (
-    APNEA_CATEGORIES,
     CAT_APNEA_CENTRAL,
     CAT_APNEA_MIXED,
     CAT_APNEA_OBSTRUCTIVE,
@@ -118,7 +117,6 @@ def compute_metrics(hyp: Hypnogram, events: Iterable[ScoredEvent]) -> dict:
     n_obstructive = sum(1 for e in events if e.category == CAT_APNEA_OBSTRUCTIVE)
     n_central = sum(1 for e in events if e.category == CAT_APNEA_CENTRAL)
     n_mixed = sum(1 for e in events if e.category == CAT_APNEA_MIXED)
-    n_apnea = n_obstructive + n_central + n_mixed
     n_hypopnea = sum(1 for e in events if e.category == CAT_HYPOPNEA)
     n_rera = sum(1 for e in events if e.category == CAT_RERA)
     n_arousal = sum(1 for e in events if e.category == CAT_AROUSAL)

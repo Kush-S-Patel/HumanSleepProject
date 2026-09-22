@@ -35,3 +35,8 @@ Thumbs.db
 /CAISR-App-main/
 *.edf
 *.h5
+
+apps/web/tsconfig.tsbuildinfo
+
+docs/media/_arial.ttf
+docs/images/_gif_frame_check.png
